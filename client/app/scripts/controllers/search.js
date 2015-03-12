@@ -10,7 +10,7 @@
   app.controller('SearchCtrl', function ($scope,Restangular,$sce) {
     $scope.search = {}
     $scope.submit = function(){
-  Restangular.all('api/serch').getList({q: $scope.search.q}).then(function(d){
+  Restangular.all('api/search').getList({q: $scope.search.q}).then(function(d){
     $scope.json = _.first(d)
     $scope.results = $scope.json.results;
     _($scope.results).forEach(function(n){

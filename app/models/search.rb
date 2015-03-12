@@ -43,7 +43,9 @@ class Search
   def self.get(opts = {})
     opts[:start] = 0
     opts[:limit] = 10
+    opts[:q].gsub!(' ', '+')
     response = HTTParty.get("http://octopart.com/api/v3/parts/search?apikey=11b3fd4e&q=#{opts[:q]}&limit=#{opts[:limit]}&start=#{opts[:start]}")
     JSON.parse(response.body)
   end
+  
 end
